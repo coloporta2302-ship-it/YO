@@ -1,0 +1,10 @@
+button{
+    background: black;
+    transition: background 0.3s ease;
+
+   
+    }
+
+button:hover{
+    background: white;
+}
