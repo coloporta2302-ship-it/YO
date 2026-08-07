@@ -3,11 +3,9 @@ import "./App.css";
 import { Catalog } from "./components/pages";
 import { RegisterForm } from "./components/templates";
 import Cart from "./components/molecules/cart";
-import { useCart } from "./components/context/CartContext";
 
 function App() {
   const [showCart, setShowCart] = useState(false);
-  const { itemCount } = useCart();
 
   return (
     <div>
@@ -24,14 +22,16 @@ function App() {
           Registrarse
         </button>
         <button onClick={() => setShowCart(true)}>
-          🛒 Carrito ({itemCount})
+          🛒 Carrito
         </button>
       </nav>
 
       <main>
         {showCart ? (
           <section id="cart">
-            <button onClick={() => setShowCart(false)}>← Volver al catálogo</button>
+            <button type="button" onClick={() => setShowCart(false)}>
+              ← Volver al catálogo
+            </button>
             <Cart />
           </section>
         ) : (
