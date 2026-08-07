@@ -99,7 +99,6 @@ margin-bottom:20px;
 color:#38bdf8;
 }
 
-/* SKILLS */
 
 .skills h2{
 text-align:center;
@@ -127,7 +126,6 @@ transition:0.3s;
 transform:translateY(-10px);
 }
 
-/* PROYECTOS */
 
 .proyectos h2{
 text-align:center;
@@ -150,7 +148,6 @@ width:250px;
 text-align:center;
 }
 
-/* CONTACTO */
 
 .contacto{
 text-align:center;
@@ -193,7 +190,6 @@ text-align:center;
 padding:20px;
 }
 
-/* RESPONSIVE */
 
 @media(max-width:768px){
 
