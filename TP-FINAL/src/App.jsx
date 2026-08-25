@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "./App.css";
 import { Catalog } from "./components/pages";
-import { RegisterForm } from "./components/templates";
+import { RegisterForm, LoginForm } from "./components/templates";
 import Cart from "./components/molecules/cart";
 
 function App() {
-  const [showCart, setShowCart] = useState(false);
+  const [view, setView] = useState("catalog");
 
   return (
     <div>
@@ -14,38 +14,24 @@ function App() {
       </header>
 
       <nav>
-        <button onClick={() => setShowCart(false)}>Catálogo</button>
-        <button onClick={() => (window.location.href = "#login")}>
-          Iniciar Sesión
-        </button>
-        <button onClick={() => (window.location.href = "#register")}>
-          Registrarse
-        </button>
-        <button onClick={() => setShowCart(true)}>
-          🛒 Carrito
-        </button>
+        <button onClick={() => setView("catalog")}>Catálogo</button>
+        <button onClick={() => setView("login")}>Iniciar Sesión</button>
+        <button onClick={() => setView("register")}>Registrarse</button>
+        <button onClick={() => setView("cart")}>🛒 Carrito</button>
       </nav>
 
       <main>
-        {showCart ? (
+        {view === "cart" ? (
           <section id="cart">
-            <button type="button" onClick={() => setShowCart(false)}>
-              ← Volver al catálogo
-            </button>
+            <button type="button" onClick={() => setView("catalog")}>← Volver al catálogo</button>
             <Cart />
           </section>
+        ) : view === "login" ? (
+          <LoginForm />
+        ) : view === "register" ? (
+          <RegisterForm />
         ) : (
-          <>
-            <section id="catalog">
-              <Catalog />
-            </section>
-
-            <section id="login"></section>
-
-            <section id="register">
-              <RegisterForm />
-            </section>
-          </>
+          <section id="catalog"><Catalog /></section>
         )}
       </main>
 
