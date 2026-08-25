@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import authRoutes from "./routes/auth.routes.js";
+import adminRoutes from "./routes/admin.routes.js";
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -15,6 +16,7 @@ app.get("/api/health", (_req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/admin", adminRoutes);
 
 const startServer = async () => {
   if (!process.env.MONGODB_URI || !process.env.JWT_SECRET) {
